@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "videos",
+  "info": {
+    "name": "Video",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "tags": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "can_comment": {
+      "type": "boolean"
+    },
+    "who_can_watch": {
+      "type": "enumeration",
+      "enum": [
+        "All",
+        "Friend",
+        "Me"
+      ]
+    },
+    "facebook": {
+      "type": "boolean"
+    },
+    "twitter": {
+      "type": "boolean"
+    },
+    "instagram": {
+      "type": "boolean"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "video": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "music_item": {
+      "model": "music-item",
+      "via": "videos"
+    }
+  }
+}
